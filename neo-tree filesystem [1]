@@ -1,0 +1,81 @@
+  ~/.config/nvim 
+    .git 
+    fonts 
+    lua 
+   └  user 
+     │  lsp 
+     │ │  settings 
+     │ │  handlers.lua                                                                                                                                                                       
+     │ │  init.lua 
+     │ │  lsp-installer.lua 
+     │ │  mason-nvim-dap.lua 
+     │ │  mason.lua 
+     │ │  mason2.lua                                                                                                                                                                         
+     │ │  mason3.lua                                                                                                                                                                         
+     │ └  null-ls.lua 
+     │ * alpha.bak                                                                                                                                                                           U 
+     │  alpha.lua                                                                                                                                                                           
+     │  autocommands.lua 
+     │  autopairs.lua 
+     │  autotag.lua 
+     │ * backuplualine 
+     │ * backupstartify 
+     │  bufferline.lua 
+     │  cmp.lua 
+     │  colorscheme.lua 
+     │  comment.lua 
+     │  customcompile.lua 
+     │  dap.lua 
+     │  dbgconfig.lua 
+     │  emmet.lua 
+     │  filetype.lua 
+     │  functions.lua 
+     │  gitsigns.lua 
+     │  gps.lua 
+     │  hologram.lua 
+     │  icons.lua 
+     │  illuminate.lua 
+     │  image.lua 
+     │  impatient.lua 
+     │  indentline.lua 
+     │  jabs.lua 
+     │  keymaps.lua 
+     │  lsp_signature.lua                                                                                                                                                                    
+     │  lualine.lua                                                                                                                                                                          
+     │  lualine1.lua                                                                                                                                                                         
+     │  lualine2.lua                                                                                                                                                                         
+     │  lualine3.lua 
+     │  luasnip.lua 
+     │  navic.lua 
+     │  neotree.lua 
+     │  noice.lua 
+     │  notify.lua 
+     │ * nvim-tree.backup 
+     │ * nvim-tree.backup1 
+     │  nvim-tree.lua 
+     │  options.lua 
+     │ * plugins.bak 
+     │  plugins.lua                                                                                                                                                                    [+]  
+     │  project.lua 
+     │  quickscope.lua 
+     │  rooter.lua 
+     │  ssr.lua 
+     │  starry.lua 
+     │  startify.lua                                                                                                                                                                         
+     │  telescope.lua 
+     │  telescopebuffer.lua 
+     │ * toggleterm.another 
+     │  toggleterm.lua 
+     │  treesitter.lua 
+     │  ultisnip.lua 
+     │  whichkey.lua 
+     │  winbar.lua 
+     └  windowpicker.lua 
+    plugin 
+    sessions                                                                                                                                                                                 
+    snapshots 
+    LICENSE 
+    README.md 
+    init.lua                                                                                                                                                                           [+]  
+    lazy-lock.json                                                                                                                                                                          
+   * term 
