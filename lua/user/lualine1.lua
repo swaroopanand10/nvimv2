@@ -241,42 +241,42 @@ ins_left {
   padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
-ins_left {
-  -- mode component
-  function()
-    -- return ''
-    return '' 
-  end,
-  color = function()
+-- ins_left {
+--   -- mode component
+--   function()
+--     -- return ''
+--     return '' 
+--   end,
+--   color = function()
 
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.red,
-      i = colors.blue,
-      -- v = colors.blue,
-      v = colors.cyan,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
-    }
-    return { fg = mode_color[vim.fn.mode()] }
-  end,
-  padding = { right = 1 },
-}
+--     -- auto change color according to neovims mode
+--     local mode_color = {
+--       n = colors.red,
+--       i = colors.blue,
+--       -- v = colors.blue,
+--       v = colors.cyan,
+--       [''] = colors.blue,
+--       V = colors.blue,
+--       c = colors.magenta,
+--       no = colors.red,
+--       s = colors.orange,
+--       S = colors.orange,
+--       [''] = colors.orange,
+--       ic = colors.yellow,
+--       R = colors.violet,
+--       Rv = colors.violet,
+--       cv = colors.red,
+--       ce = colors.red,
+--       r = colors.cyan,
+--       rm = colors.cyan,
+--       ['r?'] = colors.cyan,
+--       ['!'] = colors.red,
+--       t = colors.red,
+--     }
+--     return { fg = mode_color[vim.fn.mode()] }
+--   end,
+--   padding = { right = 1 },
+-- }
 
 ins_left {
   'branch',

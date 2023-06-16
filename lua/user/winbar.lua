@@ -44,61 +44,37 @@ M.get_filename = function()
       file_icon = ""
       file_icon_color = ""
     end
+
     -- vim.api.nvim_set_hl(0, "Winbar", { fg = "#6b737f" })
     --[[ vim.api.nvim_set_hl(0, "Winbar", { fg = "#ffffff" }) ]]
 
     -- The below code tries to find the "NavicText" property in the colorscheme file to get it's color, but if it does not find it(in some colorschemes it is not present) then it throws and error
     -- So without the below code the winbar's fg will be of plain color
-
-    -- local navic_text = vim.api.nvim_get_hl_by_name("NavicText", true)
-    -- vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
-
+    local navic_text = vim.api.nvim_get_hl_by_name("NavicText", true)
+    vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
 
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
   end
 end
 
---[[using gps and is working]]
---[[ local get_gps = function() ]]
---[[   local status_gps_ok, gps = pcall(require, "nvim-gps") ]]
---[[   if not status_gps_ok then ]]
---[[     return "" ]]
---[[   end ]]
---[[]]
---[[   local status_ok, gps_location = pcall(gps.get_location, {}) ]]
---[[   if not status_ok then ]]
---[[     return "" ]]
---[[   end ]]
---[[]]
---[[   if not gps.is_available() or gps_location == "error" then ]]
---[[     return "" ]]
---[[   end ]]
---[[]]
---[[   if not require("user.functions").isempty(gps_location) then ]]
---[[     return require("user.icons").ui.ChevronRight .. " " .. gps_location ]]
---[[   else ]]
---[[     return "" ]]
---[[   end ]]
---[[ end ]]
 
---[[now navic is also working after mason.lua]]
-local get_gps = function()
-  local status_gps_ok, gps = pcall(require, "nvim-navic")
-  if not status_gps_ok then
+local get_navic = function()
+  local status_navic_ok, navic = pcall(require, "nvim-navic")
+  if not status_navic_ok then
     return ""
   end
 
-  local status_ok, gps_location = pcall(gps.get_location, {})
+  local status_ok, navic_location = pcall(navic.get_location, {})
   if not status_ok then
     return ""
   end
 
-  if not gps.is_available() or gps_location == "error" then
+  if not navic.is_available() or navic_location == "error" then
     return ""
   end
 
-  if not require("user.functions").isempty(gps_location) then
-    return require("user.icons").ui.ChevronRight .. " " .. gps_location
+  if not require("user.functions").isempty(navic_location) then
+    return require("user.icons").ui.ChevronRight .. " " .. navic_location
   else
     return ""
   end
@@ -119,18 +95,18 @@ M.get_winbar = function()
   local f = require "user.functions"
   local value = M.get_filename()
 
-  local gps_added = false
+  local navic_added = false
   if not f.isempty(value) then
-    local gps_value = get_gps()
-    value = value .. " " .. gps_value
-    if not f.isempty(gps_value) then
-      gps_added = true
+    local navic_value = get_navic()
+    value = value .. " " .. navic_value
+    if not f.isempty(navic_value) then
+      navic_added = true
     end
   end
 
   if not f.isempty(value) and f.get_buf_option "mod" then
     local mod = "%#LspCodeLens#" .. require("user.icons").ui.Circle .. "%*"
-    if gps_added then
+    if navic_added then
       value = value .. " " .. mod
     else
       value = value .. mod
@@ -150,25 +126,26 @@ M.get_winbar = function()
   end
 end
 
--- already done in autocommands
---[[ M.create_winbar = function() ]]
---[[   vim.api.nvim_create_augroup("_winbar", {}) ]]
---[[   if vim.fn.has "nvim-0.8" == 1 then ]]
---[[     vim.api.nvim_create_autocmd( ]]
---[[       { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" }, ]]
---[[       { ]]
---[[         group = "_winbar", ]]
---[[         callback = function() ]]
---[[           local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window") ]]
---[[           if not status_ok then ]]
---[[             require("user.winbar").get_winbar() ]]
---[[           end ]]
---[[         end, ]]
---[[       } ]]
---[[     ) ]]
---[[   end ]]
---[[ end ]]
---[[]]
---[[ M.create_winbar() ]]
+-- Winbar creating (automatically creates winbar for files which does not have any lsp with just their file names)
+M.create_winbar = function()
+  vim.api.nvim_create_augroup("_winbar", {})
+  if vim.fn.has "nvim-0.8" == 1 then
+    vim.api.nvim_create_autocmd(
+      { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+      {
+        group = "_winbar",
+        callback = function()
+          local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
+          if not status_ok then
+            require("user.winbar").get_winbar()
+          end
+        end,
+      }
+    )
+  end
+end
+
+M.create_winbar()
 
 return M
+

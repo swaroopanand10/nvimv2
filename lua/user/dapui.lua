@@ -9,14 +9,6 @@ if not dap_ui_status_ok then
 end
 
 
---[[ local dap_install_status_ok, dap_install = pcall(require, "dap-install") ]]
---[[ if not dap_install_status_ok then ]]
---[[   return ]]
---[[ end ]]
-
---[[ dap_install.setup {} --debug adapters are installed in ~/.local/share/nvim/dapinstall/  by default  ]]
-
-
 -- dapui.setup()
 dapui.setup({
   icons = { expanded = "▾", collapsed = "▸" },
@@ -45,8 +37,8 @@ dapui.setup({
       -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "breakpoints",
-        -- "stacks",
-        -- "watches",
+        "stacks",
+        "watches",
       },
       size = 40, -- 40 columns
       -- position = "right",

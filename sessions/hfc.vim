@@ -13,13 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +32 ~/Desktop/prg/dev/c/books/hfc/structs.c
+badd +3 ~/Desktop/prg/dev/c/books/hfc/structs.c
 badd +13 ~/Desktop/prg/dev/c/books/hfc/unions.c
 badd +1 ~/Desktop/prg/dev/c/books/hfc/in.txt
 badd +1 ~/Desktop/prg/dev/c/books/hfc/out.txt
+badd +10 ~/Desktop/prg/dev/c/books/hfc/pointers2.c
+badd +7 ~/Desktop/prg/dev/c/books/hfc/csvtojson.c
 argglobal
 %argdel
-edit ~/Desktop/prg/dev/c/books/hfc/structs.c
+edit ~/Desktop/prg/dev/c/books/hfc/csvtojson.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -42,7 +44,7 @@ set winminwidth=0
 set winwidth=1
 wincmd =
 argglobal
-balt ~/Desktop/prg/dev/c/books/hfc/unions.c
+balt ~/Desktop/prg/dev/c/books/hfc/pointers2.c
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -53,11 +55,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 32 - ((8 * winheight(0) + 23) / 47)
+let s:l = 7 - ((6 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 32
+keepjumps 7
 normal! 0
 wincmd w
 argglobal
@@ -76,7 +78,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -99,7 +101,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt

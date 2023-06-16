@@ -13,7 +13,7 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +21 cf/cpp.cpp
+badd +20 cf/cpp.cpp
 badd +1 cf/in.txt
 badd +1 cf/out.txt
 argglobal
@@ -39,11 +39,7 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
-exe '2resize ' . ((&lines * 24 + 24) / 49)
-exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
-exe '3resize ' . ((&lines * 23 + 24) / 49)
-exe 'vert 3resize ' . ((&columns * 95 + 96) / 192)
+wincmd =
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -55,11 +51,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 23) / 47)
+let s:l = 20 - ((19 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 21
+keepjumps 20
 normal! 0
 wincmd w
 argglobal
@@ -110,11 +106,7 @@ keepjumps 1
 normal! 0
 lcd ~/Desktop/prg/cf
 wincmd w
-exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
-exe '2resize ' . ((&lines * 24 + 24) / 49)
-exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
-exe '3resize ' . ((&lines * 23 + 24) / 49)
-exe 'vert 3resize ' . ((&columns * 95 + 96) / 192)
+wincmd =
 if exists(':tcd') == 2 | tcd ~/Desktop/prg | endif
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

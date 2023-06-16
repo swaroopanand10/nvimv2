@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-local mybuffer = require("user/telescopebuffer")
+-- local mybuffer = require("user/telescopebuffer")
 -- local selection = action_state.get_current_selection()
 
 telescope.setup({
@@ -128,6 +128,7 @@ require("telescope").setup({
 		},
 	},
 })
+
 -- Telescope file browser
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
@@ -139,3 +140,4 @@ require('telescope').load_extension('ultisnips')
 require('telescope').load_extension('luasnip')
 require("telescope").load_extension("undo")
 require("telescope").load_extension "lazy"
+--require('telescope').load_extension('dap')

@@ -1,33 +1,18 @@
-M = {}
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
+require("mason").setup()
+require("mason-lspconfig").setup{
 
+ ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "bashls", "tsserver", "jsonls", "html","emmet_ls","cssls"},
 
-M.server_capabilities = function()  --dont know what this does
-  local active_clients = vim.lsp.get_active_clients()
-  local active_client_map = {}
+}
 
-  for index, value in ipairs(active_clients) do
-    active_client_map[value.name] = index
-  end
+require("user.lsp.lspconfig")
+require("user.lsp.lspkey")
 
-  vim.ui.select(vim.tbl_keys(active_client_map), {
-    prompt = "Select client:",
-    format_item = function(item)
-      return "capabilites for: " .. item
-    end,
-  }, function(choice)
-    -- print(active_client_map[choice])
-    print(vim.inspect(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities.executeCommandProvider))
-    vim.pretty_print(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities)
-  end)
-end
-
---[[ require "user.lsp.lsp-installer" ]]
-require("user.lsp.mason")
-require "user.lsp.null-ls"
-require("user.lsp.handlers").setup()
---[[ require("user.lsp.mason-nvim-dap") ]] -- not working
---[[ require("user.lsp.mason2") ]]
+require("mason-null-ls").setup({
+    automatic_setup = true,
+    ensure_installed = {"stylua","shfmt","black","flake8","prettier"},
+})
+require("user.lsp.nullls")
+require("user.lsp.lspsaga")
+require("user.lsp.dap")
+require("user.lsp.dap-virtual-text")

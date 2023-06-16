@@ -84,19 +84,14 @@ local mappings = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
-	--[[ ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" }, ]]
 	["e"] = { "<cmd>NeoTreeRevealToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["i"] = { "<cmd>wq!<CR>", "Save+Quit" },
 	["z"] = { "<cmd>wqa!<CR>", "Save+Quit+all" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["Q"] = { "<cmd>qa!<CR>", "Quit all without saving" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	["C"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	-- ["f"] = {
-	--   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	--   "Find files",
-	-- },
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["o"] = { "<cmd>FZF! --layout=reverse ~<cr>", "fzf_file" },
@@ -116,14 +111,68 @@ local mappings = {
 		d = { "<cmd>SDelete<cr>", "Delete session" },
 		D = { "<cmd>StartifyDebug<cr>", "Startify Debug" },
 	},
-	-- k = {
-	-- 	name = "fzf_grep",
-	-- 	a = { "<cmd>Files! ~<cr>", "fzf_file_prv" },
-	-- 	r = { "<cmd>Lines!<cr>", "buffer_grep" },
-	-- 	f = { "<cmd>Rg!<cr>", "normal_grep" },
-	-- 	d = { "<cmd>History!: <cr>", "history" },
-	-- 	c = { "<cmd>Commands! <cr>", "commands" },
-	-- },
+	c = {
+		name = "lspsaga",
+		a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+		b = {
+			"<cmd>Lspsaga show_buf_diagnostics<cr>",
+			"Buffer Diagnostics",
+		},
+		w = {
+			"<cmd>Lspsaga show_workspace_diagnostics<cr>",
+			"Workspace Diagnostics",
+		},
+		j = {
+			"<cmd>Lspsaga diagnostic_jump_prev<CR>",
+			"Next Diagnostic",
+		},
+		k = {
+			"<cmd>Lspsaga diagnostic_jump_next<cr>",
+			"Prev Diagnostic",
+		},
+		o = {
+			"<cmd>Lspsaga outline<cr>",
+			"lspsaga outline",
+		},
+		r = { "<cmd>Lspsaga rename<cr>", "Rename" }, -- another rename functionality in the handlers.lua file by increname
+    R = {
+      "<cmd>Lspsaga rename ++project<CR>",
+      "rename project",
+    },
+		l = {
+			"<cmd>Lspsaga show_line_diagnostics<CR>",
+			"line diagnostic",
+		},
+		h = { "<cmd>Lspsaga lsp_finder<cr>", "signature_help" },
+		p = {
+			"<cmd>Lspsaga peek_definition<CR>",
+			"peek definition",
+		},
+		d = {
+			"<cmd>Lspsaga goto_definition<CR>",
+			"goto definition",
+		},
+    g = {
+      "<cmd>Lspsaga peek_type_definition<CR>",
+      "peek type def",
+    },
+    G = {
+      "<cmd>Lspsaga goto_type_definition<cr>";
+      "goto type def",
+    },
+    c = {
+      "<cmd>Lspsaga show_cursor_diagnostics<CR>",
+      "cursor diagnostic",
+    },
+    v = {
+      "<cmd>Lspsaga hover_doc<CR>",
+      "hover doc",
+    },
+    t = {
+      "<cmd>Lspsaga term_toggle<CR>",
+      "term toggle"
+    }
+	},
 	k = {
 		name = "fzf_grep",
 		F = { "<cmd>FzfLua<cr>", "fzf_lua" },
@@ -162,15 +211,6 @@ local mappings = {
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 		x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 	},
-	--[[ p = { ]]
-	--[[   name = "Packer", ]]
-	--[[   c = { "<cmd>PackerCompile<cr>", "Compile" }, ]]
-	--[[   i = { "<cmd>PackerInstall<cr>", "Install" }, ]]
-	--[[   s = { "<cmd>PackerSync<cr>", "Sync" }, ]]
-	--[[   S = { "<cmd>PackerStatus<cr>", "Status" }, ]]
-	--[[   u = { "<cmd>PackerUpdate<cr>", "Update" }, ]]
-	--[[ }, ]]
-
 	p = {
 		name = "lazyvim",
 		c = { "<cmd>Lazy clean<cr>", "clean" },
@@ -203,7 +243,7 @@ local mappings = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = {
-		"<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<cr>",
+			"<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<cr>",
 			"Document Diagnostics",
 		},
 		w = {
@@ -224,7 +264,7 @@ local mappings = {
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-		-- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },  -- another rename functionality in the handlers.lua file by increname
+		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" }, -- another rename functionality in the handlers.lua file by increname
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -242,7 +282,15 @@ local mappings = {
 			"<cmd>NullLsInfo<cr>",
 			"null-ls info",
 		},
+    N = {
+      "<cmd>Navbuddy<cr>",
+      "navbuddy"
+    },
 		h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "signature_help" },
+    v = {
+      "<cmd>lua vim.lsp.buf.hover()<cr>",
+      "doc hover"
+    }
 	},
 	s = {
 		name = "Search",
