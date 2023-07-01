@@ -103,7 +103,8 @@ require("telescope").setup({
 			hidden = true,
 			-- depth = false, -- makes it slow
 			-- disables netrw and use telescope-file-browser in its place
-			hijack_netrw = true,
+			-- hijack_netrw = true,
+			hijack_netrw = false, --setting it true will throw and error with neotree while opening a directory so either change neotree netrw option to set this true or set this false
 			mappings = {
 				["i"] = {
 					-- your custom insert mode mappings
@@ -133,6 +134,7 @@ require("telescope").setup({
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
 require("telescope").load_extension("file_browser")
+
 require("telescope").load_extension("http")
 -- require("telescope").load_extension("media_files")
 require('telescope').load_extension('env')

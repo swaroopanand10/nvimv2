@@ -32,7 +32,7 @@ require("user.functions")
 require("user.illuminate")
 -- require "user.rooter"
 require("user.luasnip")
--- require("user.noice")
+require("user.noice")
 require("user.navbuddy")
 require("user.dapui")
 -- require("user.colorizer")

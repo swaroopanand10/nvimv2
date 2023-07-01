@@ -74,6 +74,8 @@ keymap("n", "yb", '"0P' , opts)
 keymap("i", "jk", "<Esc>", opts)
 keymap("i", "kj", "<Esc>", opts)
 
+keymap("n", "<C-a>", "<C-6>", opts)
+keymap("n", "<C-a>", "<C-6>", opts)
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

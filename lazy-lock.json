@@ -36,6 +36,7 @@
   "mason.nvim": { "branch": "main", "commit": "4be1226f48bc2011024110f37b17f5ee468df58f" },
   "monokai-pro.nvim": { "branch": "master", "commit": "cf78199c861d95b302217fb28f3205658ca27673" },
   "monokai.nvim": { "branch": "master", "commit": "b8bd44d5796503173627d7a1fc51f77ec3a08a63" },
+  "moonlight.nvim": { "branch": "pure-lua", "commit": "e24e4218ec680b6396532808abf57ca0ada82e66" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "d883632bf8f92f1d5abea4a9c28fb2f90aa795aa" },
   "nlsp-settings.nvim": { "branch": "main", "commit": "be1e0927a2ce17ba4c7f7336b6a49c67430b6b6f" },
   "noice.nvim": { "branch": "main", "commit": "a3318600bc1eba2cca84e879048c1ab8d4a0262d" },
@@ -80,5 +81,6 @@
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
   "vim-react-snippets": { "branch": "main", "commit": "b54ad78098158db06dcf03e8e087de7068f74faa" },
   "vim-startify": { "branch": "master", "commit": "81e36c352a8deea54df5ec1e2f4348685569bed2" },
-  "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }
+  "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" },
+  "zen-mode.nvim": { "branch": "main", "commit": "68f554702de63f4b7b6b6d4bcb10178f41a0acc7" }
 }

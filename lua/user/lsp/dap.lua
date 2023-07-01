@@ -6,7 +6,7 @@ require('nvim-dap-repl-highlights').setup()
 
 require('user.lsp.dap-config.node')
 require('user.lsp.dap-config.c-cpp-rust')
-require('user.lsp.dap-config.rust-tools')
+-- require('user.lsp.dap-config.rust-tools')
 
 
 

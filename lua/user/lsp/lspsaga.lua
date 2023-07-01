@@ -12,7 +12,7 @@ require("lspsaga").setup({
   },
 })
 
--- local keymap = vim.keymap.set didnt't setup bindings here instead seted them in which key
+-- local keymap = vim.keymap.set --didnt't setup bindings here instead seted them in which key
 
 -- -- LSP finder - Find the symbol's definition
 -- -- If there is no definition, it will instead be hidden

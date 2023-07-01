@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/Desktop/prg
+cd ~/Projects/hfc_restart
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,22 +13,17 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 dev/python/sample/in.txt
-badd +1 dev/python/sample/out.txt
-badd +1 dev/python/sample/py.py
+badd +1 csvtojson/csvtojson.c
+badd +0 ~/Projects/hfc_restart/csvtojson/input.csv
 argglobal
 %argdel
-edit dev/python/sample/py.py
+edit csvtojson/csvtojson.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -41,7 +36,7 @@ set winminwidth=0
 set winwidth=1
 wincmd =
 argglobal
-balt dev/python/sample/out.txt
+balt ~/Projects/hfc_restart/csvtojson/input.csv
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -52,43 +47,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 22) / 44)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 1
-normal! 03|
-wincmd w
-argglobal
-if bufexists(fnamemodify("dev/python/sample/in.txt", ":p")) | buffer dev/python/sample/in.txt | else | edit dev/python/sample/in.txt | endif
-if &buftype ==# 'terminal'
-  silent file dev/python/sample/in.txt
-endif
-balt dev/python/sample/out.txt
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 10) / 21)
+let s:l = 1 - ((0 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-lcd ~/Desktop/prg/dev/python/sample
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/Desktop/prg/dev/python/sample/out.txt", ":p")) | buffer ~/Desktop/prg/dev/python/sample/out.txt | else | edit ~/Desktop/prg/dev/python/sample/out.txt | endif
+if bufexists(fnamemodify("~/Projects/hfc_restart/csvtojson/input.csv", ":p")) | buffer ~/Projects/hfc_restart/csvtojson/input.csv | else | edit ~/Projects/hfc_restart/csvtojson/input.csv | endif
 if &buftype ==# 'terminal'
-  silent file ~/Desktop/prg/dev/python/sample/out.txt
+  silent file ~/Projects/hfc_restart/csvtojson/input.csv
 endif
-balt ~/Desktop/prg/dev/python/sample/in.txt
+balt csvtojson/csvtojson.c
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -99,13 +70,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 10) / 21)
+let s:l = 1 - ((0 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
-lcd ~/Desktop/prg/dev/python/sample
 wincmd w
 wincmd =
 tabnext 1

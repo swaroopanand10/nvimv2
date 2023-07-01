@@ -12,11 +12,10 @@
                  -- This setting only take effect in insert mode, it does not affect signature help in normal
                  -- mode, 10 by default
 
-  max_height = 12, -- max height of signature floating_window
-  max_width = 80, -- max_width of signature floating_window
+  max_height = 20, -- max height of signature floating_window
+  max_width = 100, -- max_width of signature floating_window
   noice = false, -- set to true if you using noice to render markdown
   wrap = true, -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
-  
   floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
 
   floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
@@ -35,10 +34,12 @@
   hint_scheme = "String",
   hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
   handler_opts = {
-    border = "rounded"   -- double, rounded, single, shadow, none, or a table of borders
+    -- border = "rounded"   -- double, rounded, single, shadow, none, or a table of borders
+    border = "none"   -- double, rounded, single, shadow, none, or a table of borders
   },
 
-  always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
+  -- always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
+  always_trigger = true, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
 
   auto_close_after = nil, -- autoclose signature float win after x sec, disabled if nil.
   extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
