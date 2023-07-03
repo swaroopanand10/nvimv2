@@ -17,7 +17,7 @@ null_ls.setup({
     diagnostics.flake8,
     -- diagnostics.cpplint,
     -- diagnostics.eslint_d,
-    null_ls.builtins.formatting.shfmt,
-    null_ls.builtins.diagnostics.shfmt,
+    -- null_ls.builtins.formatting.shfmt,
+    -- null_ls.builtins.diagnostics.shfmt,
   },
 })
