@@ -173,17 +173,15 @@ require('rose-pine').setup({
 --   }
 -- })
 
--- vim.cmd[[colorscheme monokai]]
-
--- require("dracula").setup({
---   colors={
---   },
---   transparent_bg=true,
---   italic_comment = true,
---   overrides={
---     -- Normal = { bg = "#000000"},
---   }
--- })
+require("dracula").setup({
+  colors={
+  },
+  transparent_bg=true,
+  italic_comment = true,
+  overrides={
+    -- Normal = { bg = "#000000"},
+  }
+})
 -- vim.cmd[[colorscheme dracula]]
 
 -- Set colorscheme after options
@@ -208,7 +206,7 @@ require('rose-pine').setup({
 -- ]])
 
 
--- vim.cmd.colorscheme("monokai-pro-ristretto")
+-- vim.cmd.colorscheme("gruvbox")
 
 -- vim.cmd[[hi! Normal guibg=#000000]]
 

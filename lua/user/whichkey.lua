@@ -248,6 +248,9 @@ local mappings = {
 	},
 	l = {
 		name = "LSP",
+
+		p = { "<cmd>LspStop<cr>", "stop lsp" },
+		P = { "<cmd>LspStart<cr>", "start lsp" },
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = {
 			"<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<cr>",
